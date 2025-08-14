@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: rgb(0, 0, 33);
+            color: thistle;
+            font-family: "Poppins", sans-serif;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px;
+            background-color: rgb(0, 0, 50);
+            position: sticky;
+            top: 0;
+            z-index: 200;
+        }
+
+        nav .left-nav {
+            font-size: 24px;
+            font-weight: bold;
+            color: #a855f7;
+        }
+
+        nav .right-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 8px 14px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        nav ul li a:hover {
+            background: rgba(168, 85, 247, 0.15);
+            color: #a855f7;
+            box-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .right-nav {
+                position: relative;
+            }
+
+            .right-nav ul {
+                display: none;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background: rgb(0, 0, 50);
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+                border-radius: 8px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+                z-index: 100;
+                animation: fadeIn 0.3s ease;
+            }
+
+            .right-nav ul.show {
+                display: flex;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* first section */
+        .first-section {
+            display: flex;
+            justify-content: center;
+            margin: 42px 0;
+            height: 80vh;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .first-section > div {
+            width: 40%;
+        }
+
+        .left-section {
+            font-size: 2.45rem;
+        }
+
+        .right-section img {
+            height: auto;
+            max-width: 100%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (max-width: 1024px) {
+            .first-section > div {
+                width: 45%;
+            }
+            .left-section {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .first-section {
+                flex-direction: column;
+                height: auto;
+                text-align: center;
+                padding: 20px;
+            }
+            .first-section > div {
+                width: 100%;
+            }
+            .left-section {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .left-section {
+                font-size: 1.5rem;
+            }
+        }
+
+        .purple {
+            color: rgb(170, 107, 228);
+        }
+
+        #element {
+            color: rgb(170, 107, 228);
+        }
+
+        /* About section */
+        .about-section {
+            padding: 60px 20px;
+            background-color: #050530;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .about-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .about-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .about-title::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #a855f7;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1 1 500px;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #d4d4d8;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .about-text strong {
+            color: #a855f7;
+        }
+
+        .about-image {
+            flex: 1 1 300px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .about-image img {
+            max-width: 300px;
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            border: 3px solid #a855f7;
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .about-image img:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .about-image {
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-section {
+                padding: 40px 15px;
+            }
+            .about-text {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* Projects section */
+        .projects-section {
+            padding: 60px 20px;
+            background-color: #050530;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .projects-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .projects-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .projects-title::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #a855f7;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: #0f0f3d;
+            border-radius: 12px;
+            padding: 20px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            border-color: #a855f7;
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .project-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #a855f7;
+            margin-bottom: 10px;
+        }
+
+        .project-desc {
+            font-size: 1rem;
+            color: #d4d4d8;
+            line-height: 1.6;
+        }
+
+        /* Experience section (projects style) */
+        .experience-section {
+            padding: 60px 20px;
+            background-color: #050530;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .experience-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .experience-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .experience-title::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #a855f7;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .experience-card {
+            background: #0f0f3d;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .experience-card:hover {
+            border-color: #a855f7;
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .experience-img {
+            max-width: 80px;
+            margin-bottom: 15px;
+            border-radius: 50%;
+            border: 2px solid #a855f7;
+        }
+
+        .experience-role {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #a855f7;
+            margin-bottom: 5px;
+        }
+
+        .experience-duration {
+            font-size: 0.9rem;
+            color: #b5b5b5;
+            margin-bottom: 10px;
+        }
+
+        .experience-desc {
+            font-size: 1rem;
+            color: #d4d4d8;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            padding: 23px 122px;
+            height: 40vh;
+            background-color: rgb(12, 12, 80);
+        }
+
+        .flex {
+            display: flex;
+            justify-content: space-evenly;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left-nav">Portfolio</div>
+            <div class="right-nav">
+                <ul id="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="menu-icon" id="menu-icon">&#9776;</div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="first-section" id="home">
+            <div class="left-section">
+                Hi, my name is <span class="purple">Anurag Mahato</span>
+                <div>and all I do is</div>
+                <span id="element"></span>
+            </div>
+            <div class="right-section">
+                <img src="profile.png" alt="">
+            </div>
+        </section>
+
+        <section class="about-section" id="about">
+            <div class="about-container">
+                <h2 class="about-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Hi, I’m <strong>Anurag</strong>, a passionate Computer Science and Engineering student specializing in <strong>Artificial Intelligence & Data Science</strong>.</p>
+                        <p>I have experience working with <strong>C++, Python, and Java</strong>, along with web technologies like HTML, CSS, and JavaScript.</p>
+                        <p>Beyond coding, I love participating in tech workshops, collaborating on projects, and challenging myself with hackathons.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="profile.png" alt="Anurag's photo">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects-section" id="projects">
+            <div class="projects-container">
+                <h2 class="projects-title">My Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3 class="project-name">Weather App</h3>
+                        <p class="project-desc">Built with HTML, CSS, and a live Weather API for real-time updates.</p>
+                    </div>
+                    <div class="project-card">
+                        <h3 class="project-name">Product Landing Page</h3>
+                        <p class="project-desc">Responsive product showcase using HTML, CSS, and JavaScript.</p>
+                    </div>
+                    <div class="project-card">
+                        <h3 class="project-name">Food Recommendation System</h3>
+                        <p class="project-desc">Developed with HTML, CSS, and Tailwind for personalized dish suggestions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="experience-section" id="experience">
+            <div class="experience-container">
+                <h2 class="experience-title">Work Experience</h2>
+                <div class="experience-grid">
+                    <div class="experience-card">
+                        <img src="profile.png" alt="HTML & CSS" class="experience-img">
+                        <h3 class="experience-role">HTML & CSS Developer</h3>
+                        <p class="experience-duration">(June - July 2024)</p>
+                        <p class="experience-desc">Developed responsive static websites using HTML and CSS, focusing on clean, maintainable code and modern UI patterns.</p>
+                    </div>
+                    <div class="experience-card">
+                        <img src="profile.png" alt="JS Developer" class="experience-img">
+                        <h3 class="experience-role">JavaScript Developer</h3>
+                        <p class="experience-duration">(July - Sept 2024)</p>
+                        <p class="experience-desc">Worked on interactive web components and dynamic features using JavaScript and DOM manipulation techniques.</p>
+                    </div>
+                    <div class="experience-card">
+                        <img src="profile.png" alt="Tailwind & React" class="experience-img">
+                        <h3 class="experience-role">Tailwind & React Developer</h3>
+                        <p class="experience-duration">(Sept - Oct 2024)</p>
+                        <p class="experience-desc">Built modern, responsive single-page applications with React and Tailwind CSS for enhanced UI/UX experiences.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-contact" id="contact" style="text-align: center; margin-bottom: 18px;">
+            📧 <a href="mailto:anurag375.2020@gmail.com">anurag375.2020@gmail.com</a>
+        </div>
+        <div class="footer-cta" style="text-align: center; margin-bottom: 18px;">
+            💡 Let’s work together!
+        </div>
+        <div class="contact-icon-cont" style="display: flex; justify-content: center; gap: 20px; margin-bottom: 18px;">
+            <a href="#"><img src="icons8-linkedin-48.png" alt="LinkedIn Profile"></a>
+            <a href="#"><img src="icons8-github-48.png" alt="GitHub Profile"></a>
+            <a href="#"><img src="icons8-gmail-48.png" alt="Gmail"></a>
+        </div>
+        <div class="footer-copy" style="text-align: center; color: #a855f7; font-size: 0.95rem;">
+            © 2025 Anurag | Built with ❤️ and coffee
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['Create.', 'Code.', 'Innovate.'],
+            typeSpeed: 50,
+        });
+
+        const menuIcon = document.getElementById('menu-icon');
+        const navLinks = document.getElementById('nav-links');
+
+        menuIcon.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+
+        document.querySelectorAll('#nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('show');
+            });
+        });
+    </script>
+</body>
+</html>
